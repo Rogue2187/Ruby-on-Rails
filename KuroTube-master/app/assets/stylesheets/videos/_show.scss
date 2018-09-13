@@ -1,0 +1,318 @@
+.video-show-wrapper {
+  color: red;
+  // ヘッダーの高さを加えた場合
+  // padding-top: calc( 56px + 24px );
+  // ヘッダーの高さを加えない場合
+  padding-top: 24px;
+}
+
+// レスポンシブ対応
+// TODO:現在横幅1300px以上の場合のスタイルしか用意していない。それ以下の際のスタイルを用意する
+@media screen and (min-width: 660px) {
+  .video-show-wrapper {
+    color: blue;
+    .main-video {
+      .main-video__video {
+      }
+    }
+  }
+}
+@media screen and (min-width: 857px) {
+  .video-show-wrapper {
+    color: yellow;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .video-show-wrapper {
+    color: purple;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .video-show-wrapper {
+    color: black;
+    width: 1280px;
+    margin: 0 auto;
+    .main-video {
+      float: left;
+      width: 854px;
+      &__video {
+      }
+      &__primary-info {
+        padding: 20px 0 8px 0;
+        border-bottom: 1px solid #EEEEEE;
+      }
+      &__primary-info.main-video-title {
+        font-size: 18px;
+        line-height: 24px;
+        padding: 0;
+        margin: 0;
+        border: none;
+      }
+      &__primary-info.main-video-info {
+        border: none;
+        padding: 0;
+        border: none;
+        height: 40px;
+        .view-count {
+          font-size: 16px;
+          line-height: 40px;
+          color: rgba(17, 17, 17, 0.6);
+        }
+        #primary-info-button {
+          float: left;
+          padding: 0 8px;
+          margin: 0;
+          font-size: 20px;
+          line-height: 40px;
+          .glyphicon-thumbs-up {
+            cursor: pointer;
+          }
+          .glyphicon-thumbs-down {
+            cursor: pointer;
+          }
+        }
+        #primary-info-text {
+          font-size: 13px;
+          line-height: 40px;
+          float: left;
+        }
+        #video-like-button {
+          @include button-reset;
+          border-style: none;
+        }
+        #video-dislike-button {
+          @include button-reset;
+          border-style: none;
+        }
+        .button_to {
+          float: left;
+        }
+        .menu-container {
+          height: 40px;
+          float: right;
+          min-width: 270px;
+          color: rgba(17, 17, 17, 0.6);
+          #like-buttons {
+            .like-container {
+              color: rgba(17, 17, 17, 0.4);
+              padding-right: 8px;
+              float: left;
+              .liked {
+                color: rgb(17, 17, 17);
+              }
+            }
+            .dislike-container {
+              color: rgba(17, 17, 17, 0.4);
+              padding-right: 8px;
+              float: left;
+              .disliked {
+                color: rgb(17, 17, 17);
+              }
+            }
+          }
+          .share-container {
+            color: rgba(17, 17, 17, 0.4);
+            display: inline;
+            padding: 0 8px;
+            float: left;
+            .glyphicon.glyphicon-share-alt {
+              font-size: 14px;
+            }
+          }
+          .playlist-container {
+            color: rgba(17, 17, 17, 0.4);
+            display: inline;
+            padding: 0 8px;
+            float: left;
+            .glyphicon.glyphicon-th-list {
+              font-size: 14px;
+              transform: translateY(-2px);
+            }
+          }
+          .other-container {
+            color: rgba(17, 17, 17, 0.4);
+            display: inline;
+            padding-right: 8px;
+            float: left;
+            .glyphicon.glyphicon-option-horizontal {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      &__secondary-info {
+        padding: 16px 0;
+        margin-bottom: 24px;
+        border-bottom: 1px solid #EEEEEE;
+        .avatar {
+          height: 50px;
+          width: 64px;
+          display: flex;
+          float: left;
+          .main-video__secondary-info__author-thumnail {
+            height: 48px;
+            width: 48px;
+            border-radius: 24px;
+          }
+        }
+        .upload-info {
+          float: left;
+          .owner-container {
+            line-height: 16px;
+            font-size: 14px;
+          }
+          .upload-date {
+            line-height: 18px;
+            font-size: 13px;
+            color: rgba(17, 17, 17, 0.6);
+          }
+        }
+        .subscribe-button {
+          background-color: rgba(255, 0, 0, 1);
+          padding: 10px 16px;
+          margin: 0 4px;
+          color: rgba(255, 255, 255, 1);
+          line-height: 21px;
+          font-size: 14px;
+          font-weight: 500;
+          float: right;
+          border-radius: 2px;
+          // TODO:登録者数の色を薄くする
+        }
+        .description {
+          clear: both;
+          padding-left: 64px;
+          width: 612.08px;
+          line-height: 21px;
+          font-size: 14px;
+
+        }
+      }
+    }
+    .next-videos {
+      float: right;
+      width: 426px;
+      height: 2139.19px;
+      padding: 0 0 0 24px;
+      &__top {
+        height: 144px;
+        width: 402px;
+        border-bottom: 1px solid #EEEEEE;
+        margin-bottom: 16px;
+        &__header {
+          width: 402px;
+          height: 22px;
+          margin-bottom: 12px;
+          &__upnext {
+            float: left;
+            font-size: 16px;
+            line-height: 20px;
+          }
+          &__paper-toggle {
+            padding-left: 8px;
+            float: right;
+            &__toggle-container {
+              margin: 4px 1px;
+              position: relative;
+              &__toggle-bar {
+                background-color: #80C7F5;
+                height: 14px;
+                width: 36px;
+                border-radius: 18px;
+                float: right;
+              }
+              &__toggle-button {
+                background-color: rgb(38, 147, 230);
+                height: 20px;
+                width: 20px;
+                border-radius: 10px;
+                z-index: 100;
+              }
+            }
+          }
+          &__autoplay {
+            float: right;
+            font-size: 13px;
+            line-height: 20px;
+            color: rgb(136, 136, 136);
+          }
+        }
+        .compact-video {
+          height: 94px;
+          width: 402px;
+          padding-bottom: 16px;
+          clear: both;
+          .compact-video__thumnail {
+            height: 94px;
+            width: 168px;
+            // background-color: black;
+            float: left;
+          }
+          .compact-video__video-link {
+            height: 94px;
+            width: 202px;
+            padding-right: 24px;
+            float: left;
+            margin-left: 8px;
+            .compact-video__video-title {
+              margin-bottom: 4px;
+              line-height: 16px;
+              font-size: 14px;
+              color: black;
+            }
+            .compact-video__video-owner {
+              line-height: 18px;
+              font-size: 13px;
+              color: rgba(17, 17, 17, 0.6);
+            }
+            .compact-video__view-count {
+              line-height: 18px;
+              font-size: 13px;
+              color: rgba(17, 17, 17, 0.6);
+            }
+          }
+        }
+      }
+      .upcoming-compact-video {
+        height: 94px;
+        width: 402px;
+        margin-bottom: 8px;
+        margin-top: 0px;
+        clear: both;
+        &__thumnail {
+          height: 94px;
+          width: 168px;
+          // background-color: black;
+          float: left;
+        }
+        &__video-link {
+          height: 94px;
+          width: 202px;
+          padding-right: 24px;
+          float: left;
+          margin-left: 8px;
+          &__video-title {
+            margin-bottom: 4px;
+            line-height: 16px;
+            font-size: 14px;
+            color: black;
+          }
+          &__video-owner {
+            line-height: 18px;
+            font-size: 13px;
+            color: rgba(17, 17, 17, 0.6);
+          }
+          &__view-count {
+            line-height: 18px;
+            font-size: 13px;
+            color: rgba(17, 17, 17, 0.6);
+          }
+        }
+      }
+    }
+    .comments {
+      clear: left;
+      width: 854px;
+    }
+  }
+}

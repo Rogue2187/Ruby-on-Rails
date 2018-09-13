@@ -1,0 +1,66 @@
+.watch {
+  margin: 0 auto;
+  .watch-list {
+    width: 780px;
+    height: 144px;
+    display: flex;
+    margin: 20px auto;
+    &__left {
+      video {
+        width: 256px;
+        height: 144px;
+      }
+    }
+    &__right {
+      width: 700px;
+      padding-left: 30px;
+      a {
+        text-decoration: none;
+      }
+      &__title {
+        display: block;
+        font-size: 20px;
+        font-family: arial;
+        letter-spacing: 1px;
+        font-weight: 500px;
+        color: black;
+      }
+      &__content {
+        display: flex;
+        &__name {
+          font-size: 13px;
+          color: #666666;
+        }
+        &__dot {
+          font-size: 13px;
+          color: #666666;
+        }
+        &__time  {
+          font-size: 13px;
+          color: #666666;
+        }
+        &__day  {
+          font-size: 13px;
+          color: #666666;
+        }
+      }
+      &__comment {
+        padding-top: 5px;
+        font-size: 13px;
+        color: #999999;
+      }
+      &__description {
+        padding-top: 5px;
+        font-size: 13px;
+        color: #999999;
+      }
+    }
+  }
+  .watch-list__button {
+    font-size: 25px;
+    a {
+      text-decoration: none;
+      color: #808080;
+    }
+  }
+}

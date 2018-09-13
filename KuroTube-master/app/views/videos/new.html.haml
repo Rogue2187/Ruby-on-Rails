@@ -1,0 +1,54 @@
+.videopage
+  = render 'layouts/flash'
+  = yield
+  .videopage__form
+    .videopage__form__uploadarea
+      = form_for @video do |f|
+        / = f.hidden_field :user_id, value: current_user.id
+        .videopage__form__uploadarea__upper
+          = f.label :video, "\0", class: "videopage__form__uploadarea__upper__label"
+          = f.file_field :video, :accept => 'video/*', class: "videopage__form__uploadarea__upper__icon", style: "display: none;"
+          .videopage__form__uploadarea__upper__text
+            %h4 アップロードするファイルを選択
+            %P または動画ファイルをドラッグ&ドロップします
+          = f.submit "公開", id: "button", class: ".videopage__form__uploadarea__bottan"
+
+
+      .videopage__form__uploadarea__under
+        %p ヘルプと推奨事項
+        15 分を超える動画をアップロードしますか
+        %span 上限を引き上げる
+        %br
+        YouTube に動画を公開することにより、YouTube の
+        %span 利用規約
+        と
+        %span コミュニティ ガイドライン
+        に同意いただいたものとします。
+        %br
+        他のユーザーの著作権またはプライバシー権を侵害しないようにしてください。
+        %span 詳細
+        %br アップロードの手順 | トラブルシューティング | モバイル アップロード
+
+    .videopage__form__rightarea
+      .videopage__form__rightarea__upper
+        .videopage__form__rightarea__upper__title
+          動画のインポート
+        .videopage__form__rightarea__upper__inport
+          .videopage__form__rightarea__upper__inport__image
+            = image_tag "google_phot.png", size: "100x60", alt: "アップロード"
+          .videopage__form__rightarea__upper__inport__text
+            Googleフォトから動画をインポート
+          .videopage__form__rightarea__upper__inport__bottan
+            = button_to "インポート"
+
+      .videopage__form__rightarea__under
+        .videopage__form__rightarea__under__title
+          ライブストリーミング
+        .videopage__form__rightarea__under__inport
+          .videopage__form__rightarea__under__inport__image
+            = image_tag "live.png", size: "60x70", alt: "アップロード"
+          .videopage__form__rightarea__under__inport__text
+            チャンネルを設定して、ファンに向けてライブ ストリーミングしましょう
+          .videopage__form__rightarea__under__inport__button
+            = button_to "はじめる"
+

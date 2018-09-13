@@ -1,0 +1,13 @@
+.index-video
+  = link_to video_path(video.id), class: "index-video__thumbnail" do
+    = video_tag video.video
+  .index-video__detail
+    = link_to video_path(video.id), class: "detail-top" do
+      .detail-top__title
+        = video.title
+    .detail-middle
+      = link_to "#{video.user.name}", root_path, class: "detail-middle__user-name"
+      = link_to "", video_path(video.id), class: "detail-middle__blank"
+    =link_to video_path(video.id), class: "detail-bottom" do
+      %p
+        = "視聴回数 #{video.count}回・#{date_format(video.created_at)}"

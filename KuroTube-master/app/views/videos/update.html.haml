@@ -1,0 +1,40 @@
+.videopage
+  .videopage__form
+    .videopage__form__sharearea
+      .videopage__form__sharearea__left
+        .videopage__form__sharearea__left__preview
+          = video_tag @video.video, size: "200x100", alt: "サムネイル"
+
+      .videopage__form__sharearea__right
+        .videopage__form__sharearea__right__upper
+          .videopage__form__sharearea__right__upper__title
+            %h4
+              = @video.title
+          .videopage__form__sharearea__right__upper__edit
+            = button_to "視聴ページへ", {controller: 'videos', action: 'show'}, {method: :get, class: "videopage__form__sharearea__right__upper__show__bottan"}
+          .videopage__form__sharearea__right__upper__edit
+            = button_to "編集画面に戻る", {controller: 'videos', action: 'edit'}, {method: :get, class: "videopage__form__sharearea__right__upper__edit__bottan"}
+
+        .videopage__form__sharearea__right__middle
+          %ul
+            %li 共有
+            %li 埋め込みコード
+            %li メール
+
+        .videopage__form__sharearea__right__menu
+        .videopage__form__sharearea__right__share
+          = image_tag "twitter.png", size: "35x35", class:"videopage__form__sharearea__right__share__twitter", alt: "twitterアイコン"
+          = image_tag "facebook.png", size: "35x35", class:"videopage__form__sharearea__right__share__facebook", alt: "facebookアイコン"
+          = image_tag "google.png", size: "35x35", class:"videopage__form__sharearea__right__share__google", alt: "google+アイコン"
+          = image_tag "goo.png", size: "35x35", class:"videopage__form__sharearea__right__share__goo", alt: "gooアイコン"
+          = image_tag "rakuten.png", size: "35x35", class:"videopage__form__sharearea__right__share__rakuten", alt: "楽天アイコン"
+          = image_tag "bing.png", size: "35x35", class:"videopage__form__sharearea__right__share__bing", alt: "bingアイコン"
+          = image_tag "mixi.png", size: "35x35", class:"videopage__form__sharearea__right__share__mixi", alt: "mixiアイコン"
+        .videopage__form__sharearea__right__url
+          視聴ページへのURL
+          .videopage__form__sharearea__right__url__border
+            .videopage__form__sharearea__right__url__border__text
+              - if Rails.env == 'development'
+                %h4 http://localhost:3000/videos/#{@video.id}
+              - elsif Rails.env == 'production'
+                %h4 http://ec2-34-199-230-135.compute-1.amazonaws.com/videos/#{@video.id}

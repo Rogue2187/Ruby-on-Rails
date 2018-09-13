@@ -1,0 +1,130 @@
+.videopage {
+  background-color: #e8e8e8;
+  height: 100vh;
+
+
+  &__form{
+    width: 1200px;
+    margin: 0 auto;
+
+      &__uploadarea {
+      float: left;
+      width: 700px;
+      font-color: #e8e8e8;
+
+        &__upper {
+          background-color: white;
+          text-align: center;
+          height: 350px;
+          margin: 20px 0 10px 0;
+          padding: 50px 0 0 0;
+
+          &__label{
+          background: image-url("upload_icon.png") #fff no-repeat center center;
+          background-size: 125px;
+          margin: 0 auto;
+          height: 125px;
+          width: 125px;
+          margin: 20px 0 10px 0;
+        }
+          &__videoform{
+          }
+          &__text{
+          }
+        }
+
+        &__under {
+          color: #999999;
+          font-size: 12px;
+          background-color: white;
+          padding: 5px 0 10px 5px;
+          line-height: 20px;
+          p{
+            color: black;
+            font-weight: bold;
+          }
+          span {
+            color: #0099cc;
+          }
+        }
+
+
+
+      &__under {
+        color: #999999;
+        font-size: 12px;
+        background-color: white;
+        padding: 5px 0 10px 5px;
+        line-height: 20px;
+        p{
+          color: black;
+          font-weight: bold;
+        }
+        span {
+          color: #0099cc;
+        }
+      }
+    }
+
+
+    &__rightarea{
+      width: 240px;
+      font-size: 10px;
+      margin: 20px 10px 0 15px;
+      float: left;
+
+      &__upper{
+        height: 130px;
+        background-color: white;
+        margin: 0 0 10px 0;
+
+        &__title{
+          font-size: 13px;
+          padding: 5px 0 5px 10px;
+        }
+
+        &__inport{
+          padding: 5px 0 0 0;
+          &__image{
+            float: left;
+          }
+          &__text{
+            font-size: 11px;
+            padding: 10px 10px 5px 2px;
+          }
+          &__button{
+            padding: 5px 0 0 0;
+          }
+        }
+      }
+
+      &__under{
+        height: 140px;
+        background-color: white;
+
+        &__title{
+          font-size: 13px;
+          padding: 5px 0 5px 10px;
+        }
+
+        &__inport{
+          padding: 5px 0 0 0;
+
+          &__image{
+            float: left;
+            padding: 5px 5px 10px 20px;
+          }
+          &__text{
+            font-size: 11px;
+            padding: 10px 10px 5px 100px;
+          }
+          &__button{
+            padding: 5px 10px 5px 100px;
+          }
+        }
+      }
+    }
+
+  }
+}
+

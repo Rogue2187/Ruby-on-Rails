@@ -1,0 +1,98 @@
+.videopage
+  .videopage__form
+    .videopage__form__editarea
+      .videopage__form__editarea__left
+        .videopage__form__editarea__left__videoarea
+          .videopage__form__editarea__left__videoarea__thumbnail
+            = video_tag @video.video, size: "200x100", alt: "メインサムネイル"
+            / 動画のサムネイルを入れる処理を行う
+          .videopage__form__editarea__left__videoarea__status
+            %h5 アップロード ステータス
+            %p アップローダが完了しました。
+        .videopage__form__editarea__left__videourl
+          .videopage__form__editarea__left__videourl__text
+            公開後に動画は次のURLで視聴できるようになります:
+          .videopage__form__editarea__left__videourl__url
+            - if Rails.env == 'development'
+              %h6 http://localhost:3000/videos/#{@video.id}
+            - elsif Rails.env == 'production'
+              %h6 http://ec2-34-199-230-135.compute-1.amazonaws.com/videos/#{@video.id}
+        .videopage__form__editarea__left__textarea
+          .videopage__form__editarea__left__textarea__title
+            %h5 動画/音声品質:
+          .videopage__form__editarea__left__textarea__icon
+            = image_tag "star.png", size: "25x25", alt: "星マーク"
+          .videopage__form__editarea__left__textarea__text
+            動画をストリーミング可能な
+            ファイル形式エンコードする
+            と、より速く処理されます。
+            詳しくは、ヘルプセンターを
+            ご覧ください。
+
+
+      .videopage__form__editarea__right
+        = form_for @video do |f|
+          .videopage__form__editarea__right__upper
+
+            .videopage__form__editarea__right__upper__up
+
+              .videopage__form__editarea__right__upper__up__status
+                = image_tag "upload_status.png", size: "625x35", alt: "処理完了"
+              .videopage__form__editarea__right__upper__up__submit
+                = f.submit "公開", id: "button", class: "videopage__form__editarea__right__upper__up__submit__bottan"
+            .videopage__form__editarea__right__upper__down
+              .videopage__form__editarea__right__upper__down__text
+                = image_tag "star.png", size: "25x25", alt: "星マーク"
+                公開をクリックして、[公開]してください。
+              .videopage__form__editarea__right__upper__down__status
+                ドラフトが保存されました
+
+          .videopage__form__editarea__right__under
+            .videopage__form__editarea__right__under__left
+              .videopage__form__editarea__right__under__left__titleform
+                = f.text_field :title, required: true, autofocus: true, placeholder: "タイトルを入力してください", size: "50px"
+              .videopage__form__editarea__right__under__left__descriptionform
+                = f.text_area :description, required: true, autofocus: true, placeholder: "説明", size: "49x5"
+              .videopage__form__editarea__right__under__left__tagform
+                %ul#video-tags
+
+
+            .videopage__form__editarea__right__under__right
+              .videopage__form__editarea__right__under__right__release
+                %select{style: "width:350px"}
+                  %option 公開
+                  %option 非公開
+                  %option 限定公開
+
+              .videopage__form__editarea__right__under__right__share
+                .videopage__form__editarea__right__under__right__share__text
+                  共有する:
+              .videopage__form__editarea__right__under__right__share__icon
+                %input{:type => "checkbox"}
+                = image_tag "google.png", size: "20x20", alt: "google+アイコン"
+                %input{:type => "checkbox", :size => "150px"}
+                = image_tag "twitter.png", size: "20x20", alt: "twitterアイコン"
+
+              .videopage__form__editarea__right__under__right__share__comment
+                .videopage__form__editarea__right__under__right__share__comment__image
+                  = image_tag "twitter.png", size: "50x50", alt: "アップロード"
+                .videopage__form__editarea__right__under__right__share__comment__text
+                  / = f.text_area :description, required: true, autofocus: true, placeholder: "動画にメッセージを追加する", size: "40x3.5"
+                  %input{type: "text", placeholder: "動画にメッセージを追加する", size: "40",class:"videopage__form__editarea__right__under__right__share__comment__text__box"}
+
+              .videopage__form__editarea__right__under__right__list
+                .videopage__form__editarea__right__under__right__list__text
+                  +再生リストの追加
+
+          .videopage__form__editarea__right__thumbnail
+            .videopage__form__editarea__right__thumbnail__text
+              動画サムネイル
+              = image_tag "question.png", size: "20x20", alt: "はてなマーク", color: "gray"
+            .videopage__form__editarea__right__thumbnail__preview
+              .videopage__form__editarea__right__thumbnail__preview__one
+                = video_tag @video.video, size: "120x80", alt: "サブサムネイル1"
+              .videopage__form__editarea__right__thumbnail__preview__two
+                = video_tag @video.video, size: "120x80", alt: "サブサムネイル2"
+              .videopage__form__editarea__right__thumbnail__preview__three
+                = video_tag @video.video, size: "120x80", alt: "サブサムネイル3"
+

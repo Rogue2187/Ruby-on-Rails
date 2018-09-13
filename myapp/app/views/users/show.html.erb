@@ -1,0 +1,10 @@
+<h1>User Info</h1>
+<hr>
+<p>name:<%= @user.family_name %> <%= @user.first_name %>sann</p>
+<p>Introduction:<%= @user.self_introduction %></p>
+<hr>
+<p><a href="/posts" class="btn btn-info">Return to top</a></p>
+<p><a href="/users" class="btn btn-primary">All users</a></p>
+<% if @user.id == current_user.id %>
+<p><a href="/users/<%= @user.id %>/edit" class="btn btn-success">edit user info</a></p>
+<% end %>

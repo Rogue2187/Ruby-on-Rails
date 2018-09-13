@@ -1,0 +1,28 @@
+-if user_signed_in?
+  #user-menu
+    #user-info
+      .user-image
+        = image_tag("#{current_user.image_url}")
+      .user-detail
+        .user-detail__name
+          = current_user.name
+        .user-detail__email
+          = current_user.email
+    .menu-list
+      = link_to "" do
+        #my-channel.menu-list__content
+          %span.menu-list__icon.glyphicon.glyphicon-user
+          %p マイチャンネル
+      = link_to "" do
+        #change-account.menu-list__content
+          %span.menu-list__icon.glyphicon.glyphicon-resize-horizontal
+          %p アカウントを切り替える
+          %span#switch-user.glyphicon.glyphicon-chevron-right
+      = link_to destroy_user_session_path, method: :delete do
+        #menu-user-logout.menu-list__content
+          %span.menu-list__icon.glyphicon.glyphicon-log-out
+          %p ログアウト
+      = link_to "" do
+        #menu-settings.menu-list__content
+          %span.menu-list__icon.glyphicon.glyphicon-wrench
+          %p 設定

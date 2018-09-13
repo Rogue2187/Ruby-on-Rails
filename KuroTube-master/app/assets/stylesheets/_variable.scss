@@ -1,0 +1,16 @@
+@mixin button-reset {
+  width:            auto;
+  padding:          0;
+  margin:           0;
+  background:       none;
+  border:           0;
+  font-size:        0;
+  line-height:      0;
+  overflow:         visible;
+  cursor:           pointer;
+}
+//buttonタグを使ったときの不要な背景を消す
+@mixin side-menu-group {
+  padding:          8px 0;
+  border-bottom:    1px solid #bdb7b7;
+}

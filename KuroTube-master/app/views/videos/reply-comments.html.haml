@@ -1,0 +1,18 @@
+              .reply-comments-contents-wrapper
+                - @parent_comments.each do |comment|
+                  .reply-comments-contents
+                    .reply-comments-contents__thread
+                      .reply-comments-contents__thread__comment
+                        .reply-comments-contents__thread__comment__author-thumnail-area
+                          %a.reply-comments-contents__thread__comment__author-thumnail-area__link
+                            = image_tag "#{current_user.image_url}", :class => "reply-comments-contents__thread__comment__author-thumnail-area__link__image"
+                        .reply-comments-contents__thread__comment__main
+                          .reply-comments-contents__thread__comment__main__title
+                            %a.reply-comments-contents__thread__comment__main__title__author-name #{comment.user.name}
+                            %p.reply-comments-contents__thread__comment__main__title__published-time #{date_format(comment.created_at)}
+                          .reply-comments-contents__thread__comment__main__content #{comment.content}
+                          .reply-comments-contents__thread__comment__main__action-buttons
+                            .reply-comments-contents__thread__comment__main__action-buttons__reply 返信
+                            %span.reply-comments-contents__thread__comment__main__action-buttons__bote-count 593
+                            %span.reply-comments-contents__thread__comment__main__action-buttons__like-button.glyphicon.glyphicon-thumbs-up
+                            %span.reply-comments-contents__thread__comment__main__action-buttons__dislike-button.glyphicon.glyphicon-thumbs-down

@@ -1,0 +1,7 @@
+<h1>All users</h1>
+<hr>
+<% @users.each do |u| %>
+  <p><a href="/users/<%= u.id %>"><%= u.family_name %> <%= u.first_name %> sann</a></p>
+  <hr>
+<% end %>
+<a href="/posts" class="btn btn-info">back to top</a>

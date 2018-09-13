@@ -1,0 +1,105 @@
+.comments-wrapper
+  .comments-header
+    .comments-header__title
+      %h2
+        / コメントの件数は返信コメントを含まない(仕様)
+        .comments-header__title__count #{@parent_comments.count}件のコメント
+      .comments-header__title__sort-menu
+        %span.comments-header__title__sort-menu__icon.glyphicon.glyphicon-align-left
+        %span.comments-header__title__sort-menu__text 並べ替え
+    / コメントフォーム
+    .comments-header__create
+      - if user_signed_in?
+        = image_tag("#{current_user.image_url}", :class => "comments-header__create__author-thumnail")
+        = form_for @comment, url: video_comments_path(params[:id]), html: {id: 'js-new-comment'} do |f|
+          = f.text_field :content, placeholder: "公開コメントを追加…", class: "comments-header__create__placeholder-area", id: "comment_content"
+          .comments-header__create__buttons.hidden_content
+            .comments-header__create__buttons__cancel
+              .comments-header__create__buttons__cancel__text キャンセル
+            = f.submit :コメント, class: "comments-header__create__buttons__submit"
+      - else
+        = link_to user_google_oauth2_omniauth_authorize_path do
+          = image_tag "blueman.jpg", :class => "comments-header__create__author-thumnail"
+          .comments-header__create__placeholder-area
+            %span.comments-header__create__placeholder-area__text 公開コメントを追加…
+  .comments-contents-wrapper
+    - i = 0
+    - @parent_comments.each do |comment|
+      .comments-contents
+        .comments-contents__thread
+          .comments-contents__thread__comment
+            .comments-contents__thread__comment__author-thumnail-area
+              %a.comments-contents__thread__comment__author-thumnail-area__link
+                = image_tag "#{comment.user.image_url}", :class => "comments-contents__thread__comment__author-thumnail-area__link__image"
+            .comments-contents__thread__comment__main
+              .comments-contents__thread__comment__main__title
+                %a.comments-contents__thread__comment__main__title__author-name #{comment.user.name}
+                %p.comments-contents__thread__comment__main__title__published-time #{date_format(comment.created_at)}
+              .comments-contents__thread__comment__main__content #{comment.content}
+              .comments-contents__thread__comment__main__action-buttons
+                .comments-contents__thread__comment__main__action-buttons__reply{ id: "#{comment.id}"} 返信
+                %span.comments-contents__thread__comment__main__action-buttons__bote-count 593
+                %span.comments-contents__thread__comment__main__action-buttons__like-button.glyphicon.glyphicon-thumbs-up
+                %span.comments-contents__thread__comment__main__action-buttons__dislike-button.glyphicon.glyphicon-thumbs-down
+              / 返信コメント用のフォーム
+              .comments-contents__thread__comment__main__reply-form.hidden_content{id: "replyform_#{comment.id}"}
+                - if user_signed_in?
+                  = image_tag("#{current_user.image_url}", :class => "comments-contents__thread__comment__main__reply-form__author-thumnail")
+                  = form_for @comment, url: video_comments_path(params[:id]), html: {id: 'js-new-reply', "data-parentId": "#{comment.id}"} do |f|
+                    = f.hidden_field :parent_comment_id, value: comment.id
+                    = f.text_field :content, placeholder: "公開の返信を追加…", class: "comments-contents__thread__comment__main__reply-form__placeholder-area"
+                    .comments-contents__thread__comment__main__reply-form__buttons
+                      .comments-contents__thread__comment__main__reply-form__buttons__cancel{id: "#{comment.id}"}
+                        .comments-contents__thread__comment__main__reply-form__buttons__cancel__text キャンセル
+                      = f.submit :返信, class: "comments-contents__thread__comment__main__reply-form__buttons__submit"
+                - else
+                  = link_to user_google_oauth2_omniauth_authorize_path do
+                    = image_tag "blueman.jpg", :class => "comments-contents__thread__comment__main__reply-form__author-thumnail"
+                    .comments-contents__thread__comment__main__reply-form__placeholder-area
+                      %span.comments-contents__thread__comment__main__reply-form__placeholder-area__text 公開コメントを追加…
+            .comments-contents__thread__comment__reply{ id: "#{comment.id}"}
+              / 「x件すべての返信を表示」を、件数によって表示を変える処理
+              - if comment.children_number == 0
+                / 返信がない場合、なにも表示しない
+              - elsif comment.children_number == 1
+                / 返信が1件の場合
+                .comments-contents__thread__comment__reply__text 返信を表示
+                %span.glyphicon.glyphicon-chevron-down.comments-contents__thread__comment__reply__icon
+              - else
+                / 複数件の返信がある場合
+                .comments-contents__thread__comment__reply__text #{comment.children_number}件すべての返信を表示
+                %span.glyphicon.glyphicon-chevron-down.comments-contents__thread__comment__reply__icon
+              / 返信コメントを表示
+              .reply-comments-contents-wrapper.hidden_content{id: "reply_#{comment.id}"}
+                / return_children()はhelperに書きました
+                - return_children(comment, @comments).each do |comment|
+                  .reply-comments-contents
+                    .reply-comments-contents__thread
+                      .reply-comments-contents__thread__comment
+                        .reply-comments-contents__thread__comment__author-thumnail-area
+                          %a.reply-comments-contents__thread__comment__author-thumnail-area__link
+                            = image_tag "#{comment.user.image_url}", :class => "reply-comments-contents__thread__comment__author-thumnail-area__link__image"
+                        .reply-comments-contents__thread__comment__main
+                          .reply-comments-contents__thread__comment__main__title
+                            %a.reply-comments-contents__thread__comment__main__title__author-name #{comment.user.name}
+                            %p.reply-comments-contents__thread__comment__main__title__published-time #{date_format(comment.created_at)}
+                          .reply-comments-contents__thread__comment__main__content #{comment.content}
+                          .reply-comments-contents__thread__comment__main__action-buttons
+                            .reply-comments-contents__thread__comment__main__action-buttons__reply
+                            %span.reply-comments-contents__thread__comment__main__action-buttons__bote-count 593
+                            %span.reply-comments-contents__thread__comment__main__action-buttons__like-button.glyphicon.glyphicon-thumbs-up
+                            %span.reply-comments-contents__thread__comment__main__action-buttons__dislike-button.glyphicon.glyphicon-thumbs-down
+/ :javascript
+/   $(function() {
+/     $('.comments-header__create').click(function(){
+/       if ($('.comments-header__create__buttons').is(':hidden')) {
+/         console.log("hidden");
+/         $('.comments-header__create__buttons').show();
+/       } else {
+/         console.log("visible");
+/         $('.comments-header__create__buttons').hide();
+/       }
+/     });
+/   });
+
+

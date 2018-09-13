@@ -1,0 +1,10 @@
+<h1>All Posts</h1>
+<hr>
+<% @post.each do |p| %>
+<p><a href="/users/<%= p.user_id %>"><%= User.find(p.user_id).family_name %> <%= User.find(p.user_id).first_name %> sama</a>'s content</p>
+<h3><a href="/posts/<%= p.id %>"><%= p.content %></a></h3>
+<small><%= p.created_at %>:<%= p.place %></small>
+
+<hr>
+<% end %>
+<p><a href="/posts/new" class = "btn btn-info">make new post</a></p>

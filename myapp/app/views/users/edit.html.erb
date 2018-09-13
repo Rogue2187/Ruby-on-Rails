@@ -1,0 +1,14 @@
+<h1>edit user info</h1>
+<hr>
+<%= form_for @user do |f| %>
+  <p>surname</p>
+  <%= f.text_field :family_name, :class => "form-control my-form" %>
+  <p>name</p>
+  <%= f.text_field :first_name, :class => "form-control my-form" %>
+  <p>Introduction</p>
+  <%= f.text_area :self_introduction, :class => "form-control my-form" %>
+  <hr>
+  <%= f.submit "submit", :class => "btn btn-primary" %>
+<% end %>
+<hr>
+<a href="/users/<%= @user.id %>" class="btn btn-info">back to user info</a>

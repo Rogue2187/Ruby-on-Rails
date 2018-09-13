@@ -1,0 +1,349 @@
+.comments-wrapper {
+  width: 854px;
+  .comments-header {
+    width: 854px;
+    height: 126px;
+    margin: 24px 0 32px 0;
+    .comments-header__title {
+      width: 854px;
+      height: 24px;
+      margin-bottom: 24px;
+      .comments-header__title__count {
+        float: left;
+        // width: auto;
+        margin-right: 32px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+      .comments-header__title__sort-menu {
+        float: left;
+        .comments-header__title__sort-menu__icon {
+          margin-right: 8px;
+          color: rgba(17, 17, 17, 0.6);
+          font-size: 16px;
+          line-height: 20px;
+        }
+        .comments-header__title__sort-menu__text {
+          color: rgba(17, 17, 17, 0.6);
+          font-size: 14px;
+        }
+      }
+    }
+    // コメントフォーム
+    .comments-header__create {
+      &__author-thumnail {
+        float: left;
+        width: 40px;
+        height: 40px;
+        margin-right: 16px;
+        border-radius: 20px;
+      }
+      &__placeholder-area {
+        float: left;
+        border: none;
+        width: 798px;
+        height: 30px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #EEEEEE;
+        margin-bottom: 8px;
+      }
+      &__buttons {
+        float: right;
+        &__cancel {
+          float: left;
+          cursor: pointer;
+          &__text {
+            padding: 10px 16px;
+            color: rgba(17, 17, 17, 0.6);
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+        &__submit {
+          border: none;
+          float: left;
+          margin-left: 8px;
+          background-color: rgb(38, 147, 230);
+          // background-color: rgba(38, 147, 230, 0.2);
+          border-radius: 2px;
+          padding: 10px 16px;
+          color: rgb(255, 255, 255);
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+        }
+      }
+    }
+    // コメントフォーム終わり
+  }
+  .comments-contents {
+    display: flex;
+    &__thread {
+      margin-bottom: 16px;
+      // background-color: pink;
+      width: 854px;
+      &__comment {
+        &__author-thumnail-area {
+          float: left;
+          width: 56px;
+          height: 82px;
+          &__link {
+            line-height: 40px;
+            &__image {
+              width: 40px;
+              height: 40px;
+              margin-right: 16px;
+              border-radius: 20px;
+            }
+          }
+        }
+        &__main {
+          float: left;
+          width: 758px;
+          // padding-left: 56px;
+          // background-color: #6DC9C9;
+          &__title {
+            margin-bottom: 2px;
+            width: 758px;
+            &__author-name {
+              display: inline;
+              color: rgb(17, 17, 17);
+              font-size: 13px;
+              font-weight: 500;
+              line-height: 18px;
+              margin: 0 8px 2px 0;
+            }
+            &__published-time {
+              display: inline;
+              color: rgb(136, 136, 136);
+              font-size: 13px;
+              font-weight: 400;
+              line-height: 18px;
+            }
+          }
+          &__content {
+            color: rgb(17, 17, 17);
+            width: 758px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+          }
+          &__action-buttons {
+            margin-top: 4px;
+            // background-color: #96D9DC;
+            &__reply {
+              display: inline;
+              color: rgba(17, 17, 17, 0.6);
+              font-size: 13px;
+              font-weight: 500;
+              line-height: 36px;
+              padding: 8px 16px 8px 4px;
+              cursor: pointer;
+            }
+            &__bote-count {
+              display: inline;
+              color: rgba(17, 17, 17, 0.6);
+              font-size: 13px;
+              font-weight: 500;
+              line-height: 36px;
+              margin: 0 16px 0px 4px;
+            }
+            &__like-button {
+              display: inline;
+              color: rgba(17, 17, 17, 0.6);
+              font-size: 13px;
+              // font-weight: 500;
+              line-height: 36px;
+              padding: 8px;
+            }
+            &__dislike-button {
+              display: inline;
+              color: rgba(17, 17, 17, 0.6);
+              font-size: 13px;
+              // font-weight: 500;
+              line-height: 36px;
+              padding: 8px;
+            }
+          }
+          // 返信コメント用のフォーム
+          &__reply-form {
+            &__author-thumnail {
+              float: left;
+              width: 24px;
+              height: 24px;
+              margin-right: 16px;
+              border-radius: 12px;
+            }
+            &__placeholder-area {
+              float: left;
+              border: none;
+              width: 718px;
+              height: 30px;
+              padding-bottom: 4px;
+              border-bottom: 1px solid #EEEEEE;
+              margin-bottom: 8px;
+            }
+            &__buttons {
+              float: right;
+              &__cancel {
+                float: left;
+                cursor: pointer;
+                &__text {
+                  padding: 10px 16px;
+                  color: rgba(17, 17, 17, 0.6);
+                  font-size: 14px;
+                  font-weight: 500;
+                }
+              }
+              &__submit {
+                border: none;
+                float: left;
+                margin-left: 8px;
+                background-color: rgb(38, 147, 230);
+                // background-color: rgba(38, 147, 230, 0.2);
+                border-radius: 2px;
+                padding: 10px 16px;
+                color: rgb(255, 255, 255);
+                font-size: 14px;
+                font-weight: 500;
+              }
+            }
+          }
+          // 返信コメント用のフォーム終わり
+        }
+        // 「x件すべての返信を表示」の部分
+        &__reply {
+          clear: both;
+          display: block;
+          padding-left: 56px;
+          &__text {
+            display: inline;
+            color: rgb(17, 17, 17);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 16px;
+            padding: 8px 8px 8px 0;
+            cursor: pointer;
+          }
+          &__icon {
+            display: inline;
+            color: rgb(17, 17, 17);
+            font-size: 11px;
+            // font-weight: 500;
+            line-height: 36px;
+            cursor: pointer;
+          }
+        }
+        // 「x件すべての返信を表示」の部分終わり
+        // 返信コメント表示
+        .reply-comments-contents {
+          display: flex;
+          &__thread {
+            margin-bottom: 16px;
+            // background-color: pink;
+            width: 718px;
+            &__comment {
+              &__author-thumnail-area {
+                float: left;
+                // width: 56px;
+                height: 82px;
+                &__link {
+                  line-height: 40px;
+                  &__image {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 16px;
+                    border-radius: 12px;
+                  }
+                }
+              }
+              &__main {
+                float: left;
+                // width: 718px;
+                // padding-left: 56px;
+                // background-color: #6DC9C9;
+                &__title {
+                  float: left;
+                  margin-bottom: 2px;
+                  width: 678px;
+                  &__author-name {
+                    display: inline;
+                    color: rgb(17, 17, 17);
+                    font-size: 13px;
+                    font-weight: 500;
+                    line-height: 18px;
+                    margin: 0 8px 2px 0;
+                  }
+                  &__published-time {
+                    display: inline;
+                    color: rgb(136, 136, 136);
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 18px;
+                  }
+                }
+                &__content {
+                  margin-top: 22px;
+                  color: rgb(17, 17, 17);
+                  width: 678px;
+                  font-size: 14px;
+                  font-weight: 400;
+                  line-height: 20px;
+                }
+                &__action-buttons {
+                  margin-top: 4px;
+                  // background-color: #96D9DC;
+                  &__reply {
+                    display: inline;
+                    color: rgba(17, 17, 17, 0.6);
+                    font-size: 13px;
+                    font-weight: 500;
+                    line-height: 36px;
+                    padding: 8px 16px 8px 4px;
+                    cursor: pointer;
+                  }
+                  &__bote-count {
+                    display: inline;
+                    color: rgba(17, 17, 17, 0.6);
+                    font-size: 13px;
+                    font-weight: 500;
+                    line-height: 36px;
+                    margin: 0 16px 0px 4px;
+                  }
+                  &__like-button {
+                    display: inline;
+                    color: rgba(17, 17, 17, 0.6);
+                    font-size: 13px;
+                    // font-weight: 500;
+                    line-height: 36px;
+                    padding: 8px;
+                  }
+                  &__dislike-button {
+                    display: inline;
+                    color: rgba(17, 17, 17, 0.6);
+                    font-size: 13px;
+                    // font-weight: 500;
+                    line-height: 36px;
+                    padding: 8px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        // 返信コメント表示終わり
+      }
+    }
+  }
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.hidden_content {
+  display: none;
+}

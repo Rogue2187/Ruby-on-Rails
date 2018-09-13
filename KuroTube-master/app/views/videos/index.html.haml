@@ -1,0 +1,23 @@
+#index-contents
+  #index-recently
+    .index-header
+      最近アップロードされた動画
+    #recently-videos.index-videos
+      = render partial: 'index-videos', collection: @recently_videos, as: :video
+  #index-recommends
+    .index-header
+      あなたへのおすすめ
+    #recommend-videos.index-videos
+      = render partial: 'index-videos', collection: @recommend_videos, as: :video
+  - if user_signed_in?
+    - unless current_user.videos.count == 0
+      .index-channel
+        .index-header
+          あなたが投稿した動画
+        .index-videos
+          = render partial: 'index-videos', collection: @own_videos, as: :video
+    .index-channel
+      .index-header
+        もう一度観る
+      .index-videos
+        = render partial: 'index-videos', collection: @watched_videos, as: :video

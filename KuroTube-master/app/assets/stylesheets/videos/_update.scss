@@ -1,0 +1,76 @@
+.videopage {
+  background-color: #e8e8e8;
+  height: 100vh;
+
+
+  &__form{
+    width: 1200px;
+    margin: 0 auto;
+
+    &__sharearea{
+      background-color: white;
+      width: 1000px;
+      height: 225px;
+      margin: 0 auto;
+
+      &__left{
+        float: left;
+        padding: 10px 10px 0 10px;
+      }
+
+      &__right{
+        padding: 10px 10px 0 0;
+        float: left;
+        &__upper{
+          width: 750px;
+          &__title{
+            float: left;
+          }
+          &__show{
+            float: right;
+            padding: 0 5px 0 5px;
+            &__bottan{
+              padding: 3px 3px 3px 3px;
+            }
+          }
+          &__edit{
+            float: right;
+            padding: 0 5px 0 5px;
+            &__bottan{
+              padding: 3px 3px 3px 3px;
+            }
+          }
+        }
+        &__middle{
+          color: gray;
+          clear: both;
+          list-style: none;
+          overflow: hidden;
+          border-bottom: solid thin;
+          li {
+            padding-left: 30px;
+            padding-bottom: 10px;
+            float: left;
+          }
+        }
+        &__menu{
+        }
+        &__share{
+          clear: both;
+          padding-top: 10px;
+        }
+        &__url{
+          padding: 10px 0 0 5px;
+          color: gray;
+          &__border{
+            border: solid thin;
+            border-color: gray;
+            &__text{
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

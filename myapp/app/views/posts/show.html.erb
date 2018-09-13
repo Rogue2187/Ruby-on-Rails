@@ -1,0 +1,11 @@
+<h1>Post</h1>
+<hr>
+<p><%= @user.family_name %><%= @user.first_name %></p>
+<h4><%= @post.content %></h4>
+<small><%= @post.created_at %>:<%= @post.place %></small>
+<hr>
+<% if user_signed_in? %>
+<p><a href="/posts/<%= @post.id%>/edit", class = "btn btn-success">edit</a></p>
+<p><a href="/posts/<%= @post.id %>" data-method="delete", class = "btn btn-danger">delete</a></p>
+<% end %>
+<p><a href="/posts/", class = "btn btn-primary">return to home</a></p>

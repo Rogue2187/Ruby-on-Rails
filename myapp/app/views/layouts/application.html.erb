@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">myapp</a>
+    </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+      	<li><a href="/">Home</a></li>
+      	<li><a href="/users/sign_up">Sign up</a></li>
+      	<li><a href="/users/sign_in">Log in</a></li>
+      	<% if user_signed_in? %>
+      	<li><a href="/users">All users</a></li>
+      	<li><a href="/users/<%=current_user.id %>">User info</a></li>
+      	<li><a href="/posts/new">Post</a></li>
+      	<li><%= link_to "Logout",destroy_user_session_path, :method => :delete %></li>
+      	<% end %>
+      </ul>
+      </div>
+  </div>
+</nav>
+<div class="container main-page">
+	<%if notice %>
+		<br>
+		<p class="alert alert-success"><%= notice %></p>
+	<% end %>
+	<%if alert %>
+		<br>
+		<p class="alert alert-danger"><%= alert %></p>
+	<% end %>
+ <%= yield %>
+</div>
+
+</body>
+</html>

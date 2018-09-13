@@ -1,0 +1,23 @@
+/*
+ *= require jquery.tagit
+ *= require tagit.ui-zendesk
+*/
+
+
+@import "reset";
+@import "variable";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "slick";
+@import "slick-theme";
+@import "shared";
+@import "flash";
+@import "videos/search";
+@import "./comments";
+@import "videos/index";
+@import "videos/show";
+@import "videos/update";
+@import "./editvideo";
+@import "videos/uploadvideo";
+@import "watches/index";
+@import "videos/slick_custom"; //これはなるべく下に置いてください

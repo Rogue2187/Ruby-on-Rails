@@ -1,0 +1,23 @@
+.watch-list
+  .watch-list__left
+    = link_to video_path(watch.video.id) do
+      = video_tag watch.video.video
+  .watch-list__right
+    = link_to video_path(watch.video.id) do
+      .watch-list__right__title
+        = watch.video.title
+      .watch-list__right__content
+        .watch-list__right__content__name
+          = watch.user.name
+        .watch-list__right__content__dot ・
+        .watch-list__right__content__time
+          = "視聴回数 #{watch.video.count}回"
+        .watch-list__right__content__dot ・
+        .watch-list__right__content__day
+          = "#{date_format(watch.updated_at)}"
+      .watch-list__right__comment
+        = watch.video.comment
+      .watch-list__right__description
+        = watch.video.description
+  .watch-list__button
+    = link_to "x", watch_path(watch.id), method: :delete

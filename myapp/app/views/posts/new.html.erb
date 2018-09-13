@@ -1,0 +1,12 @@
+<h1>make a new post</h1>
+<hr>
+<%= form_for @post do |f| %>
+ <p>content</p>
+ <%= f.text_area :content, :class => "form-control my-form"%>
+ <p>place</p>
+ <%= f.text_field :place, :class => "form-control my-form"%>
+ <hr>
+ <%= f.submit "submit" , :class => "btn btn-success" %>
+<% end %>
+<hr>
+<a href="/posts" class ="btn btn-primary">return to top</a>

@@ -1,0 +1,20 @@
+%header.header
+  .header__inner
+    .header__inner--left
+      %button.side-menu-button.glyphicon.glyphicon-align-justify
+      = link_to root_path do
+        = image_tag("headerlogo.png")
+        -# 特定の文字列が先頭のものを検索
+    = search_form_for [@q], url:search_videos_path, html:{class: "header__inner--search"} do |f|
+      = f.text_field :title_start, type: "text", placeholder: "検索", class: "header__inner--search--field"
+      = button_tag( class: "header__inner--search--button" ) do
+        = content_tag :span, "", class: "search-button glyphicon glyphicon-search"
+    .header__inner--right
+      .additional-function
+      = link_to new_video_path do
+        = content_tag :span, "", class: "video-upload glyphicon glyphicon-open"
+      - if user_signed_in?
+        .google-user-login
+          = image_tag("#{current_user.image_url}")
+      - else
+        = link_to "ログイン",user_google_oauth2_omniauth_authorize_path, class: "google-user-logout"

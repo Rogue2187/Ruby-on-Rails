@@ -1,0 +1,4 @@
+.result
+  = render partial: 'filter'
+  .result-content
+    = render partial: 'search-list', collection: @filtered_videos, as: :video

@@ -1,0 +1,31 @@
+.result-header
+  -if controller.action_name == 'search'
+    .result-header__left 結果：#{@videos.count}件
+  -if controller.action_name == 'hour' ||controller.action_name == 'today' || controller.action_name == 'week' || controller.action_name == 'month'|| controller.action_name == 'year' || controller.action_name == 'up'|| controller.action_name == 'count'|| controller.action_name == 'rank'
+    .result-header__left 結果：#{@filtered_videos.count}件
+  .result-header__right
+    %button.result-header__right__button.glyphicon.glyphicon-align-center
+    .result-header__right__filter フィルタ
+.result-header__filter
+  .result-header__filter__upload
+    .result-header__filter__upload__list アップロード日
+    %hr
+      .result-header__filter__upload__list
+        = link_to '1時間前', hour_videos_path(videofilter(@videos))
+      .result-header__filter__upload__list
+        = link_to '今日', today_videos_path(videofilter(@videos))
+      .result-header__filter__upload__list
+        = link_to '今週', week_videos_path(videofilter(@videos))
+      .result-header__filter__upload__list
+        = link_to '今月', month_videos_path(videofilter(@videos))
+      .result-header__filter__upload__list
+        = link_to '今年', year_videos_path(videofilter(@videos))
+  .result-header__filter__sort
+    .result-header__filter__sort__list 並び替え
+    %hr
+    .result-header__filter__upload__list
+      = link_to '投稿日', up_videos_path(videofilter(@videos))
+    .result-header__filter__sort__list
+      = link_to '視聴回数', count_videos_path(videofilter(@videos))
+    .result-header__filter__sort__list
+      = link_to '評価', rank_videos_path(videofilter(@videos))

@@ -1,0 +1,191 @@
+.videopage{
+
+  &__form{
+    padding: 20px 0 0 0;
+
+    &__editarea{
+      background-color: white;
+      width: 1000px;
+      height: 450px;
+      margin: 0 auto;
+
+      &__left{
+        float: left;
+        width: 225px;
+        padding: 10px 10px 10px 15px;
+
+        &__videoarea{
+
+          &__thumbnail{
+            padding: 0 0 0 0;
+          }
+          &__status{
+            p{
+              font-size: 10px;
+              color: gray;
+            }
+          }
+        }
+
+        &__videourl{
+          font-size: 11px;
+          &__text{
+            width: 180px;
+            color: gray;
+          }
+          &__url{
+            color: blue;
+          }
+        }
+
+        &__textarea{
+          padding: 15px 0 0 0;
+          &__title{
+            color: gray;
+          }
+          &__icon{
+            float: left;
+            width: 30px;
+          }
+          &__text{
+            float: left;
+            width: 140px;
+            font-size: 10px;
+            padding: 7px 15px 0 0;
+          }
+        }
+      }
+
+      &__right{
+        float: left;
+        width: 760px;
+        padding: 10px 10px 10px 10px;
+        &__upper{
+          &__up{
+            &__status{
+              float: left;
+            }
+            &__submit{
+              float: left;
+              padding: 3px 0 0 10px;
+              &__bottan{
+                background-color: #6699cc;
+                color: white;
+                text-decoration: none;
+                height: 29px;
+                width: 100px;
+                font-size: 13px;
+              }
+            }
+          }
+
+          &__down{
+            clear: both;
+            padding: 10px 0 0 0;
+            &__text{
+              float: left;
+            }
+            &__status{
+              float: right;
+              font-size: 10px;
+              padding: 5px 10px 0 0;
+              color: gray;
+            }
+          }
+        }
+
+        &__under{
+
+          &__left{
+            float: left;
+            clear: both;
+            &__titleform{
+              padding: 20px 0 0 0;
+            }
+            &__descriptionform{
+              padding: 15px 0 0 0;
+            }
+            &__tagform{
+              padding: 15px 0 0 0;
+              &__height{
+                height: 40px;
+                width: 360px;
+                font-size: 12px;
+              }
+            }
+          }
+
+          &__right{
+            float: left;
+            padding: 10px 0 0 10px;
+            &__release{
+              padding: 10px 0 0 0;
+            }
+            &__share{
+              padding: 15px 0 0 0;
+              &__text{
+                float: left;
+                font-size: 9px;
+                color: gray;
+                padding: 15px 0 0 0;
+              }
+              &__icon{
+                float: right;
+              }
+              &__comment{
+                clear: both;
+                padding: 10px 0 0 0;
+                &__image{
+                  float: left;
+                }
+                &__text{
+                  float: left;
+                  padding: 0 0 0 10px;
+                  &__box{
+                    height: 65px;
+                  }
+                }
+              }
+            }
+            &__list{
+              clear: both;
+              padding: 28px 0 0 10px;
+              &__text{
+              padding-top: 5px;
+              font-size: 10px;
+              background-color: #DCDCDC;
+              width: 350px;
+              height: 30px;
+            }
+            }
+          }
+        }
+
+        &__thumbnail{
+          clear: both;
+          padding: 15px 0 0 0;
+
+          &__text{
+            font-size: 10px;
+            color: gray;
+          }
+          &__preview{
+            padding: 10px 10px 10px 10px;
+            &__one{
+              float: left;
+              padding: 10px 10px 10px 10px;
+            }
+            &__two{
+              float: left;
+              padding: 10px 10px 10px 10px;
+            }
+            &__three{
+              float: left;
+              padding: 10px 10px 10px 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

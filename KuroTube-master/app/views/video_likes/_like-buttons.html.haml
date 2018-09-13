@@ -1,0 +1,51 @@
+-# ログインしているか判定し、ログインしていればクリックできるLikeボタンを、していなければクリックできないLikeボタンを表示
+-# ログインしてる場合
+- if user_signed_in?
+  - if @current_user_like.presence && @current_user_like.like_state == "like" # current_userが過去にLikeしている場合
+    -# likeをdestroyするボタン
+    .like-container
+      = button_to video_video_like_path(video_id: @current_user_like.video_id, id: @current_user_like.id), method: :delete, id: "video-like-button", remote: true do
+        %p#primary-info-button
+          %span.glyphicon.glyphicon-thumbs-up.liked
+      %p#primary-info-text.liked #{@video_like_number}
+    -# like_stateをdislikeにupdateするボタン
+    .dislike-container
+      = button_to video_video_like_path(video_id: @current_user_like.video_id, id: @current_user_like.id), method: :patch, id: "video-dislike-button", remote: true do
+        %p#primary-info-button
+          %span.glyphicon.glyphicon-thumbs-down
+      %p#primary-info-text #{@video_dislike_number}
+  - elsif @current_user_like.presence && @current_user_like.like_state == "dislike" # current_userが過去にdislikeをしている場合
+    -# like_stateをlikeにupdateするボタン
+    .like-container
+      = button_to video_video_like_path(video_id: @current_user_like.video_id, id: @current_user_like.id), method: :patch, id: "video-like-button", remote: true do
+        %p#primary-info-button
+          %span.glyphicon.glyphicon-thumbs-up
+      %p#primary-info-text #{@video_like_number}
+    -# dislikeをdestroyするボタン
+    .dislike-container
+      = button_to video_video_like_path(video_id: @current_user_like.video_id, id: @current_user_like.id), method: :delete, id: "video-dislike-button", remote: true do
+        %p#primary-info-button
+          %span.glyphicon.glyphicon-thumbs-down.disliked
+      %p#primary-info-text.disliked #{@video_dislike_number}
+  - else # likeもdislikeもしていない場合 つまりレコードが無い
+    -# likeをcreateするボタン
+    .like-container
+      = button_to video_video_likes_path(video_id: @video_id, id: params[:id], video_like: {like_state: 'like'}), method: :post, id: "video-like-button", remote: true do
+        %p#primary-info-button
+          %span.glyphicon.glyphicon-thumbs-up
+      %p#primary-info-text #{@video_like_number}
+    -# dislikeをcreateするボタン
+    .dislike-container
+      = button_to video_video_likes_path(video_id: @video_id, id: params[:id], video_like: {like_state: 'dislike'}), method: :post, id: "video-dislike-button", remote: true do
+        %p#primary-info-button
+          %span.glyphicon.glyphicon-thumbs-down
+      %p#primary-info-text #{@video_dislike_number}
+- else # ログインしていない場合
+  .like-container
+    %p#primary-info-button
+      %span.glyphicon.glyphicon-thumbs-up
+    %p#primary-info-text #{@video_like_number}
+  .dislike-container
+    %p#primary-info-button
+      %span.glyphicon.glyphicon-thumbs-down
+    %p#primary-info-text #{@video_dislike_number}

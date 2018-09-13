@@ -1,0 +1,35 @@
+.side-menu.slide-off
+  .side-menu__guide
+    = link_to "", class: "side-menu-list side-menu__guide__home " do
+      %span.glyphicon.glyphicon-home
+      %p  ホーム
+    = link_to "", class: "side-menu-list side-menu__guide__channel" do
+      %span.glyphicon.glyphicon-list-alt
+      %p  登録チャンネル
+  .side-menu__library
+    %h4  ライブラリ
+    = link_to "/watches", class: "side-menu-list side-menu__library__watch" do
+      %span.glyphicon.glyphicon-time
+      %p  履歴
+    = link_to "", class: "side-menu-list side-menu__library__stock" do
+      %span.glyphicon.glyphicon-check
+      %p  後で見る
+    //= render
+    = link_to "", class: "side-menu-list side-menu__library__video-list" do
+      %span.glyphicon.glyphicon-list
+      %p  再生リスト名
+  .side-menu__registered-channels
+    %span
+      //上のspanタグにはチャンネルのアバターをセット
+    %h4  登録チャンネル
+    //= render
+    = link_to "", class: "side-menu-list side-menu__registered-channels__channel" do
+      %p  登録チャンネル名
+  .side-menu__others
+    %h4  その他
+    = link_to "", class: "side-menu-list side-menu__channel-index-link" do
+      %span.glyphicon.glyphicon-plus-sign
+      %p  チャンネル一覧
+    = link_to "", class: "side-menu-list side-menu__settings" do
+      %span.glyphicon.glyphicon-wrench
+      %p  設定
